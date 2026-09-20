@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction | RainPredict Nepal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="brand-mark">☔</span><span>Rain<span>Predict</span> Nepal</span></a>
+  <nav class="nav"><a href="index.html">Home</a><a class="active" href="prediction.html">Prediction</a><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a></nav>
+  <a class="header-cta" href="prediction.html">Predict Rainfall <span>→</span></a><button class="menu-toggle" aria-label="Open menu">☰</button>
+</header>
+
+<main>
+<section class="page-hero">
+  <div><span class="eyebrow">🌧️ RAINFALL PREDICTION</span><h1>Tell us about the weather.<br><em>We'll show you the rain.</em></h1><p>Fill in the climate information below. Your Python model can later be connected to the Predict button.</p></div>
+</section>
+
+<section class="prediction-layout section">
+  <div class="prediction-form-card">
+    <div class="form-card-head"><div><span class="eyebrow">INPUT FEATURES</span><h2>Weather details</h2></div><span class="required-note">* Required</span></div>
+    <div class="form-grid">
+      <label class="field"><span>Month <b>*</b></span><small>Which month are you predicting?</small><select><option>Select month</option><option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option></select></label>
+      <label class="field"><span>District <b>*</b></span><small>Where do you want the prediction?</small><select><option>Select district</option><option>Kathmandu</option><option>Pokhara</option><option>Chitwan</option><option>Jhapa</option><option>Rupandehi</option><option>Dolakha</option><option>Mustang</option><option>Surkhet</option><option>Other district...</option></select></label>
+      <label class="field"><span>Relative humidity <b>*</b></span><small>RH2M · Humidity at 2 meters</small><div class="input-unit"><input type="number" placeholder="e.g. 68"><em>%</em></div></label>
+      <label class="field"><span>Air temperature <b>*</b></span><small>T2M · Temperature at 2 meters</small><div class="input-unit"><input type="number" placeholder="e.g. 24.5"><em>°C</em></div></label>
+      <label class="field"><span>Wind speed <b>*</b></span><small>WS10M · Wind speed at 10 meters</small><div class="input-unit"><input type="number" placeholder="e.g. 2.8"><em>m/s</em></div></label>
+      <label class="field"><span>Surface pressure <b>*</b></span><small>PS · Atmospheric pressure</small><div class="input-unit"><input type="number" placeholder="e.g. 101.2"><em>kPa</em></div></label>
+      <label class="field"><span>Rainfall last month <b>*</b></span><small>PRECTOT · Previous month's precipitation</small><div class="input-unit"><input type="number" placeholder="e.g. 45.2"><em>mm</em></div></label>
+      <label class="field"><span>Previous humidity <b>*</b></span><small>RH2M · Humidity from last month</small><div class="input-unit"><input type="number" placeholder="e.g. 71"><em>%</em></div></label>
+    </div>
+    <div class="form-actions"><button class="btn btn-primary predict-btn" type="button" id="predictBtn">Predict Rainfall <span>→</span></button><button class="clear-btn" type="button">Clear inputs</button></div>
+    <p class="form-footnote">Frontend demo only · Connect your Python prediction endpoint to <code>#predictBtn</code>.</p>
+  </div>
+
+  <aside class="prediction-side">
+    <div class="side-info"><span class="side-icon">💡</span><h3>Helpful tip</h3><p>Use the same units and preprocessing expected by your trained model for the most reliable integration.</p></div>
+    <div class="category-mini">
+      <span class="eyebrow">RAINFALL SCALE</span>
+      <div><i class="cat-dot no"></i><span>0 mm</span><b>No rainfall</b></div>
+      <div><i class="cat-dot vlow"></i><span>0.1–2.4 mm</span><b>Very low</b></div>
+      <div><i class="cat-dot low"></i><span>2.5–7.5 mm</span><b>Low</b></div>
+      <div><i class="cat-dot mod"></i><span>7.6–35.5 mm</span><b>Moderate</b></div>
+      <div><i class="cat-dot high"></i><span>35.6–64.4 mm</span><b>High</b></div>
+      <div><i class="cat-dot vhigh"></i><span>≥64.5 mm</span><b>Very high</b></div>
+    </div>
+  </aside>
+</section>
+
+<section class="result-section section" id="resultSection">
+  <div class="result-placeholder">
+    <span class="result-icon">☁</span><span class="eyebrow">YOUR PREDICTION</span>
+    <h2>Prediction result will appear here</h2>
+    <p>After connecting your Python model, display the predicted precipitation value, rainfall category, environmental message and related image in this area.</p>
+  </div>
+  <!-- Demo result card structure for your Python integration:
+  <div class="result-card">
+    <div><span class="eyebrow">PREDICTED PRECIPITATION</span><strong>12.4 <small>mm</small></strong><span class="category-badge moderate">Moderate Rainfall</span></div>
+    <img src="images/moderate-rain.png" alt="Moderate rainfall">
+    <div class="awareness-message"><b>🌱 Environmental awareness</b><p>Moderate rainfall can support soil moisture and water resources. Consider responsible water management and local weather conditions.</p></div>
+  </div>
+  -->
+</section>
+</main>
+<footer class="footer"><div><a class="brand" href="index.html"><span class="brand-mark">☔</span><span>Rain<span>Predict</span> Nepal</span></a><p>Rainfall prediction for districts of Nepal.</p></div><div class="footer-links"><a href="prediction.html">Prediction</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div><div class="footer-note">Demo frontend · Python logic can be connected later.</div></footer>
+<button class="chat-fab" id="chatFab" aria-label="Open chatbot"><span>✦</span><i></i></button>
+<div class="chat-window" id="chatWindow"><div class="chat-head"><div><b>RainPredict Assistant</b><small>Online · Demo interface</small></div><button id="chatClose">×</button></div><div class="chat-body"><div class="bot-msg">Hi! 👋 Ask me about rainfall prediction, categories or how the model works.</div><div class="quick-chips"><button>How does it work?</button><button>Categories</button></div></div><div class="chat-input"><input placeholder="Type a message..." disabled><button disabled>➤</button></div></div>
+<script src="script.js"></script>
+</body>
+</html>
